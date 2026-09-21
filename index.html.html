@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayGround — Play. Connect. Grow.</title>
+<meta name="description" content="PlayGround is a calm, structured digital play environment supporting communication, interaction and everyday learning for neurodivergent children.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap');
+
+:root{
+  --ink:#24313b;
+  --muted:#6f7c84;
+  --lav:#dcd6f7;
+  --lav-dark:#8b7fc4;
+  --blue:#cfe9ef;
+  --mint:#d8efdf;
+  --yellow:#f8e7ad;
+  --cream:#fffaf1;
+  --white:#ffffff;
+  --line:#e9e5df;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:Nunito,sans-serif;font-size:25px;font-weight:900}
+.logo-mark{width:38px;height:38px;border-radius:13px;background:var(--lav);position:relative}
+.logo-mark:before{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:var(--lav-dark);left:11px;top:8px}
+.logo-mark:after{content:"";position:absolute;width:19px;height:9px;border-radius:10px 10px 4px 4px;background:#fff;left:9px;bottom:7px;transform:rotate(-8deg)}
+.navlinks{display:flex;gap:30px;color:#617078;font-size:14px}
+.navlinks a:hover{color:var(--ink)}
+.nav-cta{padding:11px 18px;border-radius:30px;background:var(--ink);color:white;font-weight:600;font-size:14px}
+
+.hero{padding:55px 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:55px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 13px;font-size:12px;font-weight:700;color:#65717a;margin-bottom:20px}
+.dot{width:7px;height:7px;border-radius:50%;background:#9dcaad}
+h1{font-family:Nunito,sans-serif;font-size:clamp(50px,6.2vw,82px);line-height:.98;letter-spacing:-3px;max-width:650px}
+h1 span{color:var(--lav-dark)}
+.hero-copy{font-size:18px;color:var(--muted);max-width:570px;margin:25px 0 30px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 21px;border-radius:30px;font-weight:700;font-size:14px}
+.btn.primary{background:var(--ink);color:white}
+.btn.secondary{background:white;border:1px solid var(--line)}
+.hero-note{font-size:12px;color:#89939a;margin-top:17px}
+
+.scene{height:480px;position:relative}
+.blob{position:absolute;inset:45px 15px 20px 10px;background:var(--lav);border-radius:48% 52% 43% 57% / 52% 43% 57% 48%;transform:rotate(-5deg)}
+.cloud{position:absolute;width:130px;height:55px;background:white;border-radius:50px;right:0;top:20px;box-shadow:0 8px 25px rgba(50,50,50,.05)}
+.cloud:before,.cloud:after{content:"";position:absolute;background:white;border-radius:50%}
+.cloud:before{width:65px;height:65px;left:22px;top:-30px}.cloud:after{width:48px;height:48px;right:20px;top:-18px}
+.slide{position:absolute;left:115px;bottom:75px;width:210px;height:240px}
+.slide .top{position:absolute;left:12px;top:0;width:75px;height:75px;border-radius:50%;background:var(--blue)}
+.slide .pole{position:absolute;left:47px;top:64px;width:8px;height:112px;background:#72868b;border-radius:5px}
+.slide .ramp{position:absolute;left:50px;top:105px;width:165px;height:85px;border:18px solid var(--yellow);border-left:0;border-top:0;border-radius:0 0 70px 0;transform:skewY(-25deg)}
+.slide .foot{position:absolute;left:33px;bottom:0;width:8px;height:74px;background:#72868b;transform:rotate(18deg);border-radius:5px}
+.swing{position:absolute;right:60px;bottom:95px;width:155px;height:190px}
+.swing .bar{position:absolute;left:15px;top:0;width:125px;height:8px;background:#66787d;border-radius:8px}
+.swing .leg1,.swing .leg2{position:absolute;top:5px;width:7px;height:155px;background:#66787d;border-radius:7px}
+.swing .leg1{left:22px;transform:rotate(9deg)}.swing .leg2{right:22px;transform:rotate(-9deg)}
+.swing .rope1,.swing .rope2{position:absolute;top:8px;height:102px;width:3px;background:#66787d}
+.swing .rope1{left:52px}.swing .rope2{right:52px}
+.swing .seat{position:absolute;left:45px;top:106px;width:66px;height:13px;background:var(--mint);border-radius:8px}
+
+.bubble{position:absolute;border-radius:50%;box-shadow:0 12px 30px rgba(70,65,80,.08)}
+.b1{width:150px;height:150px;background:var(--blue);left:55px;top:95px}.b2{width:105px;height:105px;background:var(--yellow);right:95px;top:65px}.b3{width:78px;height:78px;background:var(--mint);left:180px;top:40px}.b4{width:125px;height:125px;background:#eadcf6;right:30px;bottom:80px}.b5{width:65px;height:65px;background:#f4cfe0;left:85px;bottom:55px}.b6{width:42px;height:42px;background:#bfe0ea;right:185px;bottom:35px}.b7{width:28px;height:28px;background:#f5dca0;left:280px;top:155px}
+
+
+.section{padding:95px 0}
+.section.white{background:#fff}
+.section-head{max-width:650px;margin-bottom:45px}
+.kicker{text-transform:uppercase;letter-spacing:1.7px;font-size:11px;font-weight:800;color:#8b7fc4;margin-bottom:10px}
+h2{font-family:Nunito,sans-serif;font-size:46px;line-height:1.05;letter-spacing:-1.5px}
+.lead{color:var(--muted);font-size:17px;margin-top:15px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:25px;padding:24px;min-height:185px}
+.card:nth-child(2){background:#f2f9fa}.card:nth-child(3){background:#f4f8f0}.card:nth-child(4){background:#fff7dd}
+.icon{font-size:30px;margin-bottom:35px}.card h3{font-family:Nunito,sans-serif;font-size:19px}.card p{font-size:13px;color:var(--muted);margin-top:7px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.mockup{background:#f1edfD;border-radius:35px;padding:22px;min-height:430px;position:relative;overflow:hidden}
+.app-window{background:white;border-radius:22px;height:390px;padding:22px;box-shadow:0 15px 45px rgba(80,65,120,.09)}
+.app-top{display:flex;justify-content:space-between;font-size:12px;color:#849099;margin-bottom:24px}
+.app-title{font-family:Nunito;font-size:26px}.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.activity{height:125px;border-radius:18px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;font-weight:800;font-size:14px}
+.a1{background:var(--blue)}.a2{background:var(--mint)}.a3{background:var(--yellow)}.a4{background:var(--lav)}
+.copy-list{display:grid;gap:20px;margin-top:28px}
+.list-item{display:flex;gap:15px}.num{width:31px;height:31px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.list-item strong{display:block}.list-item p{color:var(--muted);font-size:14px;margin-top:4px}
+
+.bridge{background:var(--ink);color:white;border-radius:38px;padding:55px 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.bridge p{color:#c9d0d4;margin-top:15px;max-width:540px}.bridge h2{color:white}
+.flow{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+.flowbox{background:#fff;color:var(--ink);padding:16px 18px;border-radius:18px;text-align:center;font-weight:800;font-size:13px;min-width:100px}
+.arrow{color:#dcd6f7;font-size:20px}
+
+.cta{padding:100px 0;text-align:center}.cta-inner{background:var(--lav);border-radius:40px;padding:70px 25px;position:relative;overflow:hidden}.cta h2{max-width:650px;margin:auto}.cta p{max-width:560px;margin:15px auto 25px;color:#657078}
+footer{padding:35px 0;border-top:1px solid var(--line);color:#7b878d;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+
+
+.research-form{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:8px}.research-form input{width:min(320px,100%);border:1px solid rgba(36,49,59,.15);background:#fff;border-radius:30px;padding:14px 18px;font:inherit;outline:none}.research-form input:focus{border-color:#8b7fc4;box-shadow:0 0 0 3px rgba(139,127,196,.12)}.research-form button{border:0;cursor:pointer;font:inherit}.form-message{font-size:13px;color:#59666e;margin-top:12px;min-height:20px}
+
+@media(max-width:800px){
+  .navlinks{display:none}.hero-grid,.split,.bridge{grid-template-columns:1fr}.scene{height:390px}.cards{grid-template-columns:1fr 1fr}h2{font-size:38px}.hero{padding-top:25px}.bridge{padding:40px 28px}
+}
+@media(max-width:500px){.cards{grid-template-columns:1fr}.scene{transform:scale(.82);transform-origin:top left;width:120%}.hero{padding-bottom:20px}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#"><span class="logo-mark"></span>PlayGround</a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#how">How it works</a><a href="#research">Research</a>
+      </div>
+      <a class="nav-cta" href="#research">Join the research</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Built around learning through play</div>
+      <h1>Play. <span>Connect.</span> Grow.</h1>
+      <p class="hero-copy">PlayGround is a calm, structured digital play environment designed to support communication, interaction, and everyday learning for neurodivergent children.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#about">Discover PlayGround →</a>
+        <a class="btn secondary" href="#research">Join our research</a>
+      </div>
+      <p class="hero-note">Developed with families, therapists & researchers.</p>
+    </div>
+    <div class="scene" aria-label="Pastel color bubbles">
+      <div class="blob"></div>
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+      <div class="bubble b5"></div>
+      <div class="bubble b6"></div>
+      <div class="bubble b7"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">What children can explore</div>
+      <h2>Meaningful play, without the overwhelm.</h2>
+      <p class="lead">PlayGround turns everyday developmental goals into calm, engaging activities that can be explored at a child's own pace.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">💬</div><h3>Communication</h3><p>Activities that encourage expression, understanding and shared attention.</p></div>
+      <div class="card"><div class="icon">🤝</div><h3>Interaction</h3><p>Practice cooperation, turn-taking and building relationships through play.</p></div>
+      <div class="card"><div class="icon">🌱</div><h3>Emotions</h3><p>Explore feelings and emotional understanding in a predictable environment.</p></div>
+      <div class="card"><div class="icon">🏠</div><h3>Everyday skills</h3><p>Bring useful learning beyond the clinic and into everyday life.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container split">
+    <div class="mockup">
+      <div class="app-window">
+        <div class="app-top"><span>PLAYGROUND</span><span>Child profile · 08:42</span></div>
+        <div class="app-title">Choose an activity</div>
+        <div class="activity-grid">
+          <div class="activity a1">Understanding feelings</div>
+          <div class="activity a2">Let's cooperate</div>
+          <div class="activity a3">Everyday routines</div>
+          <div class="activity a4">Cause & effect</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="kicker">Designed for calm</div>
+      <h2>A digital space that adapts to the child.</h2>
+      <p class="lead">PlayGround is designed to avoid unnecessary sensory overload and give families more control over the experience.</p>
+      <div class="copy-list">
+        <div class="list-item"><div class="num">01</div><div><strong>Predictable</strong><p>Clear activities and gentle interactions create a consistent environment.</p></div></div>
+        <div class="list-item"><div class="num">02</div><div><strong>Customizable</strong><p>Visual intensity, colors and sound can be adjusted to individual needs.</p></div></div>
+        <div class="list-item"><div class="num">03</div><div><strong>Play-based</strong><p>Built around the idea that children learn through meaningful play and exploration.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="research">
+  <div class="container">
+    <div class="bridge">
+      <div>
+        <div class="kicker" style="color:#dcd6f7">The clinic–home connection</div>
+        <h2>From therapy to everyday life.</h2>
+        <p>PlayGround is being developed to help connect structured therapeutic support with meaningful practice at home.</p>
+      </div>
+      <div class="flow">
+        <div class="flowbox">Therapist<br><small>Plans</small></div><div class="arrow">→</div>
+        <div class="flowbox">PlayGround<br><small>Play</small></div><div class="arrow">→</div>
+        <div class="flowbox">Home<br><small>Continue</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="kicker">Help us shape PlayGround</div>
+      <h2>Built with research. Shaped with families.</h2>
+      <p>We're looking for families and professionals who want to contribute to the research and development of a more connected play experience.</p>
+      <form id="researchForm" class="research-form">
+        <input id="researchEmail" type="email" placeholder="Your email address" aria-label="Your email address" required>
+        <button class="btn primary" type="submit">Join the research →</button>
+      </form>
+      <p id="formMessage" class="form-message" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="container">
+  <div>© 2026 PlayGround</div>
+  <div>Research-first digital play for neurodivergent children.</div>
+</footer>
+
+<script>
+const form=document.getElementById('researchForm');
+const message=document.getElementById('formMessage');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  const email=document.getElementById('researchEmail').value.trim();
+  if(!email) return;
+  message.textContent='Thanks! Your interest has been recorded for this prototype.';
+  form.reset();
+});
+</script>
+</body>
+</html>
